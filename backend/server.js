@@ -18,7 +18,7 @@ connectCloudinary();
 // middlewares
 app.use(express.json());
 app.use(cors({
-    origin: 'https://ecommerce-app-admin-eta.vercel.app'
+    origin: 'https://ecommerce-app-admin-ivory.vercel.app'
 }));
 
 app.options('*', cors());
