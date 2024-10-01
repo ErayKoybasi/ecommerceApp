@@ -18,9 +18,7 @@ connectCloudinary();
 // middlewares
 app.use(express.json());
 app.use(cors({
-    origin: 'https://ecommerce-app-admin-eta.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: 'https://ecommerce-app-admin-eta.vercel.app'
 }));
 
 //api endpoints
