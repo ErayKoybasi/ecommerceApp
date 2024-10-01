@@ -21,6 +21,8 @@ app.use(cors({
     origin: 'https://ecommerce-app-admin-eta.vercel.app'
 }));
 
+app.options('*', cors());
+
 //api endpoints
 app.use('/api/user', userRouter);
 app.use('/api/product', productRouter);
