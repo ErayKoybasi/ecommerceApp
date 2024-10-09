@@ -19,8 +19,12 @@ const PlaceOrder = () => {
     state: '',
     zipcode: '',
     country: '',
-    phone: ''
-  })
+    phone: '',
+});
+  
+const handleIyzicoClick = () => {
+  navigate('/iyzico');
+};
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
@@ -49,10 +53,10 @@ const PlaceOrder = () => {
             }
         }
         let orderData = {
-            address : formData,
-            items : orderItems,
-            amount: getCartAmount() + delivery_fee
-        }
+          address: formData,
+          items: orderItems,
+          amount: getCartAmount() + delivery_fee,
+      };
         switch (method) {
           //API CALLS for COD
           case "cod":
@@ -73,6 +77,8 @@ const PlaceOrder = () => {
               toast.error(responseStripe.data.message);
             }
           break
+          
+
           default:
             break;
         }
@@ -104,6 +110,7 @@ const PlaceOrder = () => {
               <input required onChange={onChangeHandler} name='country' value={formData.country} type="text" placeholder='Country'className='border border-gray-300 rounded py-1.5 px-3.5 w-full'/>
           </div>
           <input required onChange={onChangeHandler} name='phone' value={formData.phone} type="number" placeholder='Phone'className='border border-gray-300 rounded py-1.5 px-3.5 w-full'/>
+          
       </div>
 
       <div className='mt-8'>
@@ -118,7 +125,9 @@ const PlaceOrder = () => {
                           <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-green-400' : ''}`}></p>
                           <img src={assets.stripe_logo} className='h-5 mx-4' alt="" />
                       </div>
-                     
+                      <button onClick={handleIyzicoClick}>
+        Iyzico Ödeme Sayfasına Git
+      </button>
                       <div onClick={()=> setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
                           <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-green-400' : ''}`}></p>
                           <p className='text-gray-500 text-sm font-medium mx-4'>CASH ON DELIVERY</p>

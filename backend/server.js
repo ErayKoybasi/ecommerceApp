@@ -15,13 +15,12 @@ const port = process.env.PORT || 4000
 connectDB();
 connectCloudinary();
 
+
 // middlewares
 app.use(express.json());
-app.use(cors({
-    origin: 'https://ecommerce-app-admin-ivory.vercel.app'
-}));
+app.use(cors());
 
-app.options('*', cors());
+
 
 //api endpoints
 app.use('/api/user', userRouter);
